@@ -1,0 +1,545 @@
+@charset "UTF-8";
+body, h1, div, nav, button, span, a, ul, input, li, p {
+  padding: 0;
+  margin: 0; }
+
+body {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2d2529;
+  display: flex;
+  font-size: 16px;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  font-family: arial, serif, sans-serif, helvetica;
+  overflow: hidden; }
+
+header {
+  color: blanchedalmond;
+  margin-bottom: 20px; }
+  header h1 {
+    font-size: 3em; }
+
+#count_display1 {
+  opacity: 0;
+  font-size: .75em;
+  position: absolute;
+  right: -100%; }
+
+#outer_wrapper {
+  position: relative;
+  width: 321px;
+  height: 490px; }
+
+#left {
+  opacity: 0.3;
+  position: absolute;
+  top: 75px;
+  left: 1px;
+  height: 38px;
+  width: 35px;
+  z-index: 9; }
+
+#right {
+  opacity: 0.3;
+  position: absolute;
+  top: 75px;
+  right: 1px;
+  height: 38px;
+  width: 35px;
+  z-index: 9999; }
+
+#wrapper {
+  box-sizing: border-box;
+  position: relative;
+  background-color: #7b7b84;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-style: outset;
+  border-radius: 8px;
+  box-shadow: 1px 1px 0 1px grey, -1px -1px 0 1px grey; }
+  #wrapper #calc_type_name {
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    width: 100%;
+    height: 25px;
+    color: #22b215;
+    /* #close {
+        flex-grow: 0;
+        border-top-right-radius: 6px;
+        &:hover {
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+        background-color: $bg_color;
+        color: black;
+        width: 10%;
+    } */ }
+    #wrapper #calc_type_name p {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center; }
+    #wrapper #calc_type_name #calc_type_name_p {
+      flex-grow: 3; }
+  #wrapper #hamburger_div {
+    position: absolute;
+    top: 24.5px;
+    left: 12px; }
+    #wrapper #hamburger_div #menu {
+      height: 25px;
+      width: 23px;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background-color: #7b7b84; }
+      #wrapper #hamburger_div #menu:after {
+        content: '\002630';
+        font-size: 1.5em; }
+  #wrapper #history_div {
+    position: absolute;
+    top: 29px;
+    right: 14px; }
+    #wrapper #history_div #history_img {
+      height: 23px;
+      width: 23px;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      cursor: default;
+      background-color: transparent;
+      background-image: url("../images/history.png");
+      background-size: 100% 100%;
+      opacity: 0.3; }
+  #wrapper #wrapper_buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%; }
+    #wrapper #wrapper_buttons #standard {
+      font-size: 1em;
+      padding: 0px 15px 5px 15px;
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: column nowrap;
+      align-content: flex-start;
+      align-items: flex-start;
+      justify-content: flex-start; }
+    #wrapper #wrapper_buttons #scientific {
+      display: none; }
+  #wrapper #textarea {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    margin-top: 15px;
+    box-sizing: border-box;
+    height: 120px;
+    padding: 15px;
+    display: flex;
+    justify-content: center; }
+    #wrapper #textarea .display {
+      width: 100%;
+      background-color: #8A8A93;
+      border: 0;
+      padding: 0 4px;
+      text-align: right; }
+      #wrapper #textarea .display#display1 {
+        border-radius: 6px 6px 0 0;
+        height: 45px;
+        font-size: .75em;
+        color: #191967; }
+      #wrapper #textarea .display#display2 {
+        border-radius: 0 0 6px 6px;
+        height: 75px;
+        font-size: 1.5em;
+        color: black; }
+
+button {
+  font-size: .9em;
+  width: 60px;
+  height: 45px;
+  padding: 5px;
+  font-family: serif, arial, helvetica, sans-serif;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  background-color: #c0c0d1; }
+  button:not(:last-of-type) {
+    margin-right: 10px; }
+  button.science {
+    background-color: #8f8fbc;
+    width: 60px;
+    height: 71px; }
+  button .super {
+    vertical-align: super; }
+  button#pi:before {
+    content: '\0003C0'; }
+  button.x.a:after {
+    content: "𝑥"; }
+  button.x.b:before {
+    content: "𝑥"; }
+  button.sym_freq {
+    font-size: 1.1em; }
+  button .x:after {
+    content: "𝑥"; }
+  button.number {
+    font-size: 1.2em;
+    font-weight: bolder;
+    background-color: white; }
+  button#dot {
+    font-size: 1.2em;
+    font-weight: bolder; }
+
+.hvr {
+  cursor: pointer; }
+  .hvr:hover {
+    background-color: transparent; }
+    .hvr:hover.number {
+      color: white; }
+  .hvr.sym_freq:hover {
+    background-color: #8e8eed; }
+  .hvr.science:hover {
+    background-color: #c872cc; }
+
+.no_hover {
+  cursor: default; }
+  .no_hover:hover {
+    background-color: #c0c0d1; }
+  .no_hover.number {
+    background-color: white; }
+  .no_hover.science {
+    background-color: #8f8fbc; }
+
+.eq_number {
+  font-size: .7em; }
+
+.row_button:not(:last-of-type) {
+  margin-bottom: 5px; }
+
+#calc_type_div {
+  display: none;
+  z-index: 9999;
+  position: absolute;
+  box-sizing: border-box;
+  top: 70px;
+  left: 2px;
+  background-color: white;
+  width: 180px;
+  border-radius: 0 8px 8px 0; }
+  #calc_type_div #select_type {
+    list-style: none;
+    width: 100%;
+    height: 100%; }
+    #calc_type_div #select_type li {
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: row nowrap; }
+      #calc_type_div #select_type li:first-of-type span {
+        border-radius: 0 7px 0 0; }
+      #calc_type_div #select_type li:last-of-type span {
+        border-radius: 0 0 7px 0; }
+    #calc_type_div #select_type span {
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      color: #194c9e;
+      cursor: pointer; }
+      #calc_type_div #select_type span:hover {
+        background-color: #194c9e;
+        color: white; }
+    #calc_type_div #select_type li:not(:last-of-type) {
+      border-bottom: 1px dotted #99dfe5; }
+
+#history_list_div {
+  display: none;
+  border-top: 2px solid #5e7dbc;
+  position: absolute;
+  box-sizing: border-box;
+  bottom: 0px;
+  left: 0px;
+  background-color: #d1cfcf;
+  width: 100%;
+  height: 70%;
+  border-radius: 6px 6px 6px 6px; }
+  #history_list_div #history_ul_wrapper {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 87%; }
+    #history_list_div #history_ul_wrapper #history_ul_list {
+      list-style: none;
+      width: 100%;
+      height: 87%; }
+      #history_list_div #history_ul_wrapper #history_ul_list li {
+        box-sizing: border-box;
+        width: 100%;
+        cursor: pointer;
+        margin-bottom: 6px;
+        text-align: right;
+        padding: 3px 5px 3px 0px; }
+      #history_list_div #history_ul_wrapper #history_ul_list li:hover {
+        background-color: #d5dce8; }
+  #history_list_div #delete_div {
+    bottom: 0;
+    border-top: 1px dashed #a8a4a4;
+    border-radius: 0 0 6px 6px;
+    background-color: #a8a4a4;
+    height: 13%;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    margin-bottom: 3%; }
+    #history_list_div #delete_div #delete_icon {
+      cursor: pointer;
+      height: 100%;
+      width: 13%;
+      background-image: url("../images/delete_icon.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position: left top;
+      margin-right: 3%; }
+
+footer {
+  margin: 10px;
+  width: 100%;
+  color: #22b215;
+  font-size: 0.9em; }
+  footer p {
+    width: 98%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center; }
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 13.5px; }
+
+  #outer_wrapper {
+    width: 257px;
+    height: 410px; }
+
+  header {
+    margin-bottom: 20px; }
+    header h1 {
+      font-size: 2.3em; }
+
+  button {
+    font-size: 1em;
+    width: 53px;
+    height: 38px;
+    padding: 3.3px;
+    border-radius: 5px; }
+    button:not(:last-of-type) {
+      margin-right: 4px; }
+    button.number {
+      font-size: 1em;
+      font-weight: bold; }
+    button#dot {
+      font-size: 1em;
+      font-weight: bold; }
+    button.science {
+      width: 53px;
+      height: 59px; }
+
+  #wrapper {
+    border-radius: 3px;
+    box-shadow: .8px .8px 0 .8px grey, -.8px -.8px 0 .8px grey; }
+    #wrapper #wrapper_buttons #standard {
+      font-size: 1em;
+      padding: 5px 6px 3px 6px; }
+    #wrapper #wrapper_buttons #scientific {
+      padding-top: 5px; }
+    #wrapper #textarea {
+      font-size: 11.5px;
+      margin-top: 14px;
+      height: 100px;
+      padding: 6px; }
+      #wrapper #textarea .display {
+        width: 100%;
+        padding: 0 3px; }
+        #wrapper #textarea .display#display1 {
+          border-radius: 4px 4px 0 0;
+          height: 37.5px;
+          font-size: .95em; }
+        #wrapper #textarea .display#display2 {
+          border-radius: 0 0 4px 4px;
+          height: 62.5px;
+          font-size: 1.5em; }
+    #wrapper #hamburger_div {
+      top: 20px;
+      left: 2px; }
+      #wrapper #hamburger_div #menu {
+        height: 16px;
+        width: 20px; }
+        #wrapper #hamburger_div #menu:after {
+          font-size: 1.3em; }
+    #wrapper #history_div {
+      position: absolute;
+      top: 22px;
+      right: 5.5px; }
+      #wrapper #history_div #history_img {
+        height: 17px;
+        width: 17px;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background-color: transparent;
+        background-image: url("../images/history.png");
+        background-size: 100% 100%; }
+    #wrapper #calc_type_name {
+      border-radius: 3px 3px 0 0;
+      height: 20px;
+      /* #close {
+          border-top-right-radius: 3px;
+      }*/ }
+
+  #calc_type_div {
+    width: 70%;
+    top: 55px;
+    left: 2px;
+    border-radius: 0 6px 6px 0; }
+    #calc_type_div #select_type span {
+      border-radius: 0 6px 6px 0;
+      padding: 8px; }
+
+  #left {
+    opacity: 0.3;
+    position: absolute;
+    top: 63px;
+    left: 1px;
+    height: 32px;
+    width: 27px;
+    z-index: 9; }
+
+  #right {
+    opacity: 0.3;
+    position: absolute;
+    top: 63px;
+    right: 1px;
+    height: 32px;
+    width: 27px;
+    z-index: 9999; } }
+@media screen and (max-width: 350px) {
+  body {
+    font-size: 11px; }
+
+  #outer_wrapper {
+    width: 198px;
+    height: 330px; }
+
+  header {
+    margin-bottom: 20px; }
+    header h1 {
+      font-size: 1.9em; }
+
+  button {
+    font-size: 1em;
+    width: 40px;
+    height: 30px;
+    padding: 2px;
+    border-radius: 4px; }
+    button:not(:last-of-type) {
+      margin-right: 3px; }
+    button.number {
+      font-size: 1em;
+      font-weight: bold; }
+    button#dot {
+      font-size: 1em;
+      font-weight: bold; }
+    button.science {
+      width: 40px;
+      height: 47.3px; }
+
+  #wrapper {
+    border-radius: 3px;
+    box-shadow: .5px .5px 0 .5px grey, -.5px -.5px 0 .5px grey; }
+    #wrapper #wrapper_buttons #standard {
+      font-size: 1em;
+      padding: 3px 6px 3px 6px; }
+    #wrapper #wrapper_buttons #scientific {
+      padding-top: 3px; }
+    #wrapper #textarea {
+      font-size: 9px;
+      margin-top: 9px;
+      height: 85px;
+      padding: 6px; }
+      #wrapper #textarea .display {
+        width: 100%;
+        padding: 0 2px; }
+        #wrapper #textarea .display#display1 {
+          border-radius: 3px 3px 0 0;
+          height: 30px;
+          font-size: .95em; }
+        #wrapper #textarea .display#display2 {
+          border-radius: 0 0 3px 3px;
+          height: 55px;
+          font-size: 1.5em; }
+    #wrapper #hamburger_div {
+      top: 14.5px;
+      left: 1px; }
+      #wrapper #hamburger_div #menu {
+        height: 16px;
+        width: 20px; }
+        #wrapper #hamburger_div #menu:after {
+          font-size: 1.2em; }
+    #wrapper #history_div {
+      position: absolute;
+      top: 16px;
+      right: 6px; }
+      #wrapper #history_div #history_img {
+        height: 14.5px;
+        width: 14.5px;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background-color: transparent;
+        background-image: url("../images/history.png");
+        background-size: 100% 100%; }
+    #wrapper #calc_type_name {
+      border-radius: 3px 3px 0 0;
+      height: 15px;
+      /* #close {
+          border-top-right-radius: 3px;
+      }*/ }
+
+  #calc_type_div {
+    width: 60%;
+    top: 50px;
+    left: 2px;
+    border-radius: 0 4px 4px 0; }
+    #calc_type_div #select_type span {
+      border-radius: 0 4px 4px 0;
+      padding: 5px; }
+
+  #left {
+    opacity: 0.3;
+    position: absolute;
+    top: 45px;
+    left: 0px;
+    height: 32px;
+    width: 29px;
+    z-index: 9; }
+
+  #right {
+    opacity: 0.3;
+    position: absolute;
+    top: 45px;
+    right: 0px;
+    height: 32px;
+    width: 29px;
+    z-index: 9999; } }
+
+/*# sourceMappingURL=main.css.map */

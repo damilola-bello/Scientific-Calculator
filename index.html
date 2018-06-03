@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <link rel="icon" href="images/calc.png" />
+        <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+    </head>
+    <body>
+       <header>
+           <h1>Scientific Calculator</h1>
+       </header>
+       <span id="count_display1"></span>
+       <div id="outer_wrapper">
+           <img src="images/left.png" id="left" />
+           <img src="images/right.png" id="right" />
+            <div id="wrapper">
+                <div id="calc_type_name">
+                    <p id="calc_type_name_p">Standard</p>
+                    <!--<p id="close" title="Close">X</p> -->
+                </div>
+                <div id="hamburger_div"><button id="menu" title="Menu"></button></div>
+                <div id="history_div"><button id="history_img" title="History"></button></div>
+                <div id="textarea">
+                    <input type="text" class="display" id="display1" disabled/>
+                    <input type="text" class="display" id="display2" maxlength="25" value="0" disabled/>
+                </div>
+                <div id="wrapper_buttons">
+                    <div id="standard">
+                        <div id="row1" class="row_button">
+                            <button title="Percentage" id="percentage" class="operator hvr s_o">%</button>
+                            <button title="One over X" id="one_over_x" class="symbol operator hvr s_o"><span class="eq_number">1</span>/&#x1D465;</button>
+                            <button title="Square" id="square" class="operator hvr s_o">&#x1D465;<span class="super eq_number">2</span></button>
+                            <button title="Square root" id="square_root" class="operator hvr s_o">&#x221A;</button>
+                        </div>
+                        <div id="row2" class="row_button">
+                            <button title="Clear output" id="clear_output" class="symbol hvr">CE</button>
+                            <button title="Clear Screen" id="clear_screen" class="symbol hvr">C</button>
+                            <button title="Backspace" id="backspace" class="symbol hvr">&#9986;</button>
+                            <button title="Divide" class="symbol sym_freq operator hvr" id="divide">&divide;</button>
+                        </div>
+                        <div id="row3" class="row_button">
+                            <button title="Seven" id="seven" class="number hvr">7</button>
+                            <button title="Eight" id="eight" class="number hvr">8</button>
+                            <button title="Nine" id="nine" class="number hvr">9</button>
+                            <button title="times" id="multiply" class="operator symbol sym_freq hvr">&times;</button>
+                        </div>
+                        <div id="row4" class="row_button">
+                            <button title="Four" id="four" class="number hvr">4</button>
+                            <button title="Five" id="five" class="number hvr">5</button>
+                            <button title="Six" id="six" class="number hvr">6</button>
+                            <button title="Minus" id="minus" class="operator symbol sym_freq hvr">-</button>
+                        </div>
+                        <div id="row5" class="row_button">
+                            <button title="One" id="one" class="number hvr">1</button>
+                            <button title="Two" id="two" class="number hvr">2</button>
+                            <button title="Three" id="three" class="number hvr">3</button>
+                            <button title="Plus" id="plus" class="symbol operator sym_freq hvr">+</button>
+                        </div>
+                        <div id="row6" class="row_button">
+                            <button title="Plus or minus" id="plus_minus" class="hvr operator s_o">&plusmn;</button>
+                            <button title="Zero" id="zero" class="number hvr">0</button>
+                            <button title="Dot" id="dot" class="sym_freq hvr">.</button>
+                            <button title="Equals" id="equals" class="symbol sym_freq hvr">=</button>
+                        </div>
+                    </div>
+                    <div id="scientific">
+                        <div id="row7" class="row_button">
+                            <button title="Sine" id="sin" class="science hvr operator s_o">sin</button>
+                            <button title="Cosine" id="cos" class="science hvr operator s_o">cos</button>
+                        </div>
+                        <div id="row8" class="row_button">
+                            <button title="Tangent" id="tan" class="operator science hvr s_o">tan</button>
+                            <button title="Modulo" id="mod" class="operator science hvr">mod</button>
+                        </div>
+                        <div id="row9" class="row_button">
+                            <button title="Logarithm" id="log" class="operator science hvr s_o">log</button>
+                            <button title="Ten to power X" id="to_power_x" class="operator science hvr s_o">10<span class="super x"></span></button>
+                        </div>
+                        <div id="row10" class="row_button">
+                            <button title="X to power Y" id="xy" class="x b operator science hvr"><span class="super">y</span></button>
+                            <button title="Pi" id="pi" class="operator science hvr s_o"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="calc_type_div">
+            <ul id="select_type">
+                <li id="standard_li"><span id="standard_a">Standard</span></li>
+                <li id="scientific_li"><span id="scientific_a">Scientific</span></li>
+            </ul>
+            </div>
+            <div id="history_list_div">
+                <div id="history_ul_wrapper">
+                    <ul id="history_ul_list">
+
+                    </ul>
+                </div>
+                <div id="delete_div"><p title="Clear all history" id="delete_icon"></p></div>
+            </div>
+        </div>
+        <footer><p>Bello Damilola | 2017-12-07</p></footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="JS/main.js"></script>
+    </body>
+</html>
